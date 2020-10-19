@@ -152,6 +152,15 @@ namespace BJ
         {
         }
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == (char)Keys.B)
+            {
+                MessageBox.Show("a");
+            }
+        }
+
+
         private void button_loose_Click(object sender, EventArgs e)
         {
             //Ajouter la loose à nos totaux
