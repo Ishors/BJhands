@@ -1,0 +1,9 @@
+C:\Users\a.capeyron\source\repos\BJ\BJ\bin\Debug\BJ.exe
+C:\Users\a.capeyron\source\repos\BJ\BJ\bin\Debug\BJ.pdb
+C:\Users\a.capeyron\source\repos\BJ\BJ\obj\Debug\BJ.csprojAssemblyReference.cache
+C:\Users\a.capeyron\source\repos\BJ\BJ\obj\Debug\BJ.Form1.resources
+C:\Users\a.capeyron\source\repos\BJ\BJ\obj\Debug\BJ.Properties.Resources.resources
+C:\Users\a.capeyron\source\repos\BJ\BJ\obj\Debug\BJ.csproj.GenerateResource.cache
+C:\Users\a.capeyron\source\repos\BJ\BJ\obj\Debug\BJ.csproj.CoreCompileInputs.cache
+C:\Users\a.capeyron\source\repos\BJ\BJ\obj\Debug\BJ.exe
+C:\Users\a.capeyron\source\repos\BJ\BJ\obj\Debug\BJ.pdb
