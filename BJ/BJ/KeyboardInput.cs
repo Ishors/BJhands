@@ -13,7 +13,10 @@ namespace BJ
 
         public void readKeyboard()
         {
-            if (Keyboard.IsKeyDown()
+            /*if (Keyboard.IsKeyDown())
+            {
+
+            }*/
         }
     }
 }
