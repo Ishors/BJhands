@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.textBox_Ienks = new System.Windows.Forms.TextBox();
             this.textBox_Croupier = new System.Windows.Forms.TextBox();
@@ -37,11 +36,12 @@
             this.button_Win = new System.Windows.Forms.Button();
             this.button_Loss = new System.Windows.Forms.Button();
             this.button_oups = new System.Windows.Forms.Button();
+            this.button_reset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox_Ienks
             // 
-            this.textBox_Ienks.Location = new System.Drawing.Point(68, 166);
+            this.textBox_Ienks.Location = new System.Drawing.Point(65, 120);
             this.textBox_Ienks.Name = "textBox_Ienks";
             this.textBox_Ienks.Size = new System.Drawing.Size(100, 22);
             this.textBox_Ienks.TabIndex = 2;
@@ -49,7 +49,7 @@
             // 
             // textBox_Croupier
             // 
-            this.textBox_Croupier.Location = new System.Drawing.Point(365, 166);
+            this.textBox_Croupier.Location = new System.Drawing.Point(359, 120);
             this.textBox_Croupier.Name = "textBox_Croupier";
             this.textBox_Croupier.Size = new System.Drawing.Size(100, 22);
             this.textBox_Croupier.TabIndex = 3;
@@ -58,7 +58,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 110);
+            this.label1.Location = new System.Drawing.Point(95, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 17);
             this.label1.TabIndex = 4;
@@ -67,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(383, 110);
+            this.label2.Location = new System.Drawing.Point(381, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 17);
             this.label2.TabIndex = 5;
@@ -75,7 +75,7 @@
             // 
             // button_Win
             // 
-            this.button_Win.Location = new System.Drawing.Point(214, 227);
+            this.button_Win.Location = new System.Drawing.Point(208, 184);
             this.button_Win.Name = "button_Win";
             this.button_Win.Size = new System.Drawing.Size(103, 49);
             this.button_Win.TabIndex = 6;
@@ -85,7 +85,7 @@
             // 
             // button_Loss
             // 
-            this.button_Loss.Location = new System.Drawing.Point(214, 295);
+            this.button_Loss.Location = new System.Drawing.Point(208, 254);
             this.button_Loss.Name = "button_Loss";
             this.button_Loss.Size = new System.Drawing.Size(103, 48);
             this.button_Loss.TabIndex = 7;
@@ -95,7 +95,7 @@
             // 
             // button_oups
             // 
-            this.button_oups.Location = new System.Drawing.Point(444, 365);
+            this.button_oups.Location = new System.Drawing.Point(12, 386);
             this.button_oups.Name = "button_oups";
             this.button_oups.Size = new System.Drawing.Size(99, 32);
             this.button_oups.TabIndex = 8;
@@ -103,13 +103,23 @@
             this.button_oups.UseVisualStyleBackColor = true;
             this.button_oups.Click += new System.EventHandler(this.button_oups_Click_1);
             // 
+            // button_reset
+            // 
+            this.button_reset.Location = new System.Drawing.Point(447, 387);
+            this.button_reset.Name = "button_reset";
+            this.button_reset.Size = new System.Drawing.Size(109, 31);
+            this.button_reset.TabIndex = 9;
+            this.button_reset.Text = "Reset";
+            this.button_reset.UseVisualStyleBackColor = true;
+            this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(568, 430);
+            this.Controls.Add(this.button_reset);
             this.Controls.Add(this.button_oups);
             this.Controls.Add(this.button_Loss);
             this.Controls.Add(this.button_Win);
@@ -134,6 +144,7 @@
         private System.Windows.Forms.Button button_Win;
         private System.Windows.Forms.Button button_Loss;
         private System.Windows.Forms.Button button_oups;
+        private System.Windows.Forms.Button button_reset;
     }
 }
 

@@ -147,5 +147,10 @@ namespace BJ
         {
             arrTot[0] = arrTot[1] = 0;
         }
+
+        private void button_reset_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText(@"C:\Users\a.capeyron\Desktop\Data.csv", String.Empty);
+        }
     }
 }
