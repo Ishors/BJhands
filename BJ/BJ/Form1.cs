@@ -12,18 +12,16 @@ namespace BJ
 {
     public partial class Form1 : Form
     {
-        int[] arr;
-        int[] arrTot;
-        int total_ienks, total_croupier;
-        List<int> listRes;
-        Proba proba;
+        private int[] arr;
+        private int[] arrTot;
+        private int total_ienks, total_croupier;
+        private Proba proba;
 
-        StreamWriter writer;
+        public int[] ArrTot { get => arrTot; set => arrTot = value; }
 
         public Form1()
         {
             InitializeComponent();
-            listRes = new List<int>();
             arrTot = new int[3];
             arr = new int[13];
             proba = new Proba();
@@ -141,10 +139,9 @@ namespace BJ
             //Ajouter la win à nos totaux
             arrTot[2] = 1;
             //Écrire dans le fichier
-            using (writer = new StreamWriter(@"C:\Users\a.capeyron\Desktop\Data.csv", true))
-            {
-                writer.WriteLine("{0};{1};{2}", arrTot[0], arrTot[1], arrTot[2]);
-            }
+            DataExport data = new DataExport();
+            data.DataExportCSV(arrTot);
+
             //Réinitialiser totaux ienks et croupier
             arrTot[0] = arrTot[1] = total_ienks = total_croupier = 0;
         }
@@ -166,10 +163,8 @@ namespace BJ
             //Ajouter la loose à nos totaux
             arrTot[2] = 0;
             //Écrire dans le fichier
-            using (writer= new StreamWriter(@"C:\Users\a.capeyron\Desktop\Data.csv",true))
-            {
-                writer.WriteLine("{0};{1};{2}", arrTot[0], arrTot[1], arrTot[2]);
-            }
+            DataExport data = new DataExport();
+            data.DataExportCSV(arrTot);
             //Réinitialiser totaux ienks et croupier
             arrTot[0] = arrTot[1] = total_ienks = total_croupier = 0;
         }
