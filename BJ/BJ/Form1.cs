@@ -12,10 +12,7 @@ namespace BJ
 {
     public partial class Form1 : Form
     {
-        private int[] arr;
         private int[] arrTot;
-        private int total_ienks, total_croupier;
-        private Proba proba;
 
         public int[] ArrTot { get => arrTot; set => arrTot = value; }
 
@@ -23,142 +20,117 @@ namespace BJ
         {
             InitializeComponent();
             arrTot = new int[3];
-            arr = new int[13];
-            proba = new Proba();
-        }
-        
-        private void button_dame_Click(object sender, EventArgs e)
-        {
-            arr[10] =10;
-        }
 
-        private void button_roi_Click(object sender, EventArgs e)
-        {
-            arr[11] = 10;
         }
-
-        private void button_as_Click(object sender, EventArgs e)
+       
+        private void textBox_Ienks_KeyDown(object sender, KeyEventArgs e)
         {
-            arr[12] = 100;
-        }
-
-        private void button_valet_Click(object sender, EventArgs e)
-        {
-            arr[9] = 10;
-        }
-
-        private void button_ienks_Click(object sender, EventArgs e)
-        {
-            //Calculer le total des cartes du joueur
-            total_ienks = proba.Calcul_Total(arr);
-            //Ajouter ce resultat à notre arrTot
-            arrTot[0] = total_ienks;
-            //Réinitialiser l'arr
-            for (int i = 0; i < arr.Length; i++)
+            int ienks_card = 0;
+            if (e.KeyValue == (char)97)
             {
-                arr[i] = 0;
+                //Ici on cherche à différencier l'as des autres cartes
+                ienks_card = 100;
             }
-            
-        }
-
-        private void button_10_Click(object sender, EventArgs e)
-        {
-            arr[8] = 10;
-        }
-
-        private void button_9_Click(object sender, EventArgs e)
-        {
-            arr[7] = 9;
-        }
-
-        private void button_8_Click(object sender, EventArgs e)
-        {
-            arr[6] = 8;
-        }
-
-        private void button_7_Click(object sender, EventArgs e)
-        {
-            arr[5] = 7;
-        }
-
-        private void button_6_Click(object sender, EventArgs e)
-        {
-            arr[4] = 6;
-        }
-
-        private void button_5_Click(object sender, EventArgs e)
-        {
-            arr[3] = 5;
-        }
-
-        private void button_4_Click(object sender, EventArgs e)
-        {
-            arr[2] = 4;
-        }
-
-        private void button_3_Click(object sender, EventArgs e)
-        {
-            arr[1] = 3;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button_2_Click(object sender, EventArgs e)
-        {
-            arr[0] = 2;
-        }
-
-        private void button_croupier_Click(object sender, EventArgs e)
-        {
-            //Calculer le total des cartes du croupier
-            total_croupier = proba.Calcul_Total(arr);
-
-            //Ajouter ce resultat à notre arrTot
-            arrTot[1] = total_croupier;
-
-            //Réinitialiser l'arr
-            for (int i = 0; i < arr.Length; i++)
+            if (e.KeyValue == (char)98)
             {
-                arr[i] = 0;
+                ienks_card = 2;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < arr.Length; i++)
+            if (e.KeyValue == (char)99)
             {
-                arr[i] = 0;
+                ienks_card = 3;
             }
+            if (e.KeyValue == (char)100)
+            {
+                ienks_card = 4;
+            }
+            if (e.KeyValue == (char)101)
+            {
+                ienks_card = 5;
+            }
+            if (e.KeyValue == (char)102)
+            {
+                ienks_card = 6;
+            }
+            if (e.KeyValue == (char)103)
+            {
+                ienks_card = 7;
+            }
+            if (e.KeyValue == (char)104)
+            {
+                ienks_card = 8;
+            }
+            if (e.KeyValue == (char)105)
+            {
+                ienks_card = 9;
+            }
+            if (e.KeyValue == (char)96)
+            {
+                ienks_card = 10;
+            }          
+            arrTot[0] += ienks_card;     
         }
 
-        private void buttonwin_Click(object sender, EventArgs e)
+        private void textBox_Croupier_KeyDown(object sender, KeyEventArgs e)
+        {
+            int croupier_card = 0;
+            if (e.KeyValue == (char)97)
+            {
+                //Ici on cherche à différencier l'as des autres cartes
+                croupier_card = 100;
+            }
+            if (e.KeyValue == (char)98)
+            {
+                croupier_card = 2;
+            }
+            if (e.KeyValue == (char)99)
+            {
+                croupier_card = 3;
+            }
+            if (e.KeyValue == (char)100)
+            {
+                croupier_card = 4;
+            }
+            if (e.KeyValue == (char)101)
+            {
+                croupier_card = 5;
+            }
+            if (e.KeyValue == (char)102)
+            {
+                croupier_card = 6;
+            }
+            if (e.KeyValue == (char)103)
+            {
+                croupier_card = 7;
+            }
+            if (e.KeyValue == (char)104)
+            {
+                croupier_card = 8;
+            }
+            if (e.KeyValue == (char)105)
+            {
+                croupier_card = 9;
+            }
+            if (e.KeyValue == (char)96)
+            {
+                croupier_card = 10;
+            }
+            arrTot[1] += croupier_card;
+        }
+
+        private void button_Win_Click(object sender, EventArgs e)
         {
             //Ajouter la win à nos totaux
             arrTot[2] = 1;
             //Écrire dans le fichier
             DataExport data = new DataExport();
             data.DataExportCSV(arrTot);
-
             //Réinitialiser totaux ienks et croupier
-            arrTot[0] = arrTot[1] = total_ienks = total_croupier = 0;
-        }
-        private void button_export_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == (char)Keys.B)
-            {
-                MessageBox.Show("a");
-            }
+            arrTot[0] = arrTot[1] = 0;
+            textBox_Ienks.Text = "";
+            textBox_Croupier.Text = "";
         }
 
-
-        private void button_loose_Click(object sender, EventArgs e)
+        private void button_Loss_Click(object sender, EventArgs e)
         {
             //Ajouter la loose à nos totaux
             arrTot[2] = 0;
@@ -166,7 +138,14 @@ namespace BJ
             DataExport data = new DataExport();
             data.DataExportCSV(arrTot);
             //Réinitialiser totaux ienks et croupier
-            arrTot[0] = arrTot[1] = total_ienks = total_croupier = 0;
+            arrTot[0] = arrTot[1] = 0;
+            textBox_Ienks.Text = "";
+            textBox_Croupier.Text = "";
+        }
+
+        private void button_oups_Click_1(object sender, EventArgs e)
+        {
+            arrTot[0] = arrTot[1] = 0;
         }
     }
 }
