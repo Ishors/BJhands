@@ -15,22 +15,23 @@ namespace BJ
 
         }
 
-        public void ImportDataCSV()
+        public string[] ImportDataCSV()
         {
+            string[] import = new string[3];
             using (reader = new StreamReader(@"C:\Users\a.capeyron\Desktop\Data.csv"))
             {
-                ///Variable temporaire pour stocker chaque ligne lue
+                /// Local variable used to stock every readed line
                 string line;
                 // Read and display lines from the file until the end of
                 // the file is reached.
                 while ((line = reader.ReadLine()) != null)
                 {
-                    //Découpage de la ligne lue selon le séparateur ";"
-                    //Le résultat est un tableau de trois strings: [ienks_card ,croupier_card,win/loss]
-                    string[] import = line.Split(';');
-
+                    // Splitting the line every ";"
+                    // and putting it into an array made of three strings : [ienks_card, croupier_card, win/loss]
+                    import = line.Split(';');
                 }
             }
+        return import;
         }
     }
 }

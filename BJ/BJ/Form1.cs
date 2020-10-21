@@ -13,6 +13,10 @@ namespace BJ
     public partial class Form1 : Form
     {
         private int[] arrTot;
+        DataImport dataImport;
+        private double winTotal;
+        private double lossTotal;
+        private double ratio;
 
         public int[] ArrTot { get => arrTot; set => arrTot = value; }
 
@@ -20,9 +24,8 @@ namespace BJ
         {
             InitializeComponent();
             arrTot = new int[3];
-
         }
-       
+        
         private void textBox_Ienks_KeyDown(object sender, KeyEventArgs e)
         {
             int ienks_card = 0;
@@ -119,6 +122,7 @@ namespace BJ
 
         private void button_Win_Click(object sender, EventArgs e)
         {
+            while()
             //Ajouter la win à nos totaux
             arrTot[2] = 1;
             //Écrire dans le fichier
@@ -128,6 +132,9 @@ namespace BJ
             arrTot[0] = arrTot[1] = 0;
             textBox_Ienks.Text = "";
             textBox_Croupier.Text = "";
+            // Adding the win to the total
+            winTotal += 1;
+            textBox_nbrWin.Text = winTotal.ToString();
         }
 
         private void button_Loss_Click(object sender, EventArgs e)
@@ -141,6 +148,9 @@ namespace BJ
             arrTot[0] = arrTot[1] = 0;
             textBox_Ienks.Text = "";
             textBox_Croupier.Text = "";
+            // Adding the loss to the total
+            lossTotal += 1;
+            textBox_nbrLoss.Text = lossTotal.ToString();
         }
 
         private void button_oups_Click_1(object sender, EventArgs e)
@@ -151,6 +161,21 @@ namespace BJ
         private void button_reset_Click(object sender, EventArgs e)
         {
             File.WriteAllText(@"C:\Users\a.capeyron\Desktop\Data.csv", String.Empty);
+            lossTotal = 0;
+            winTotal = 0;
+            ratio = 0;
+        }
+
+        private void textBox_nbrWin_TextChanged(object sender, EventArgs e)
+        {
+            ratio = winTotal / lossTotal;
+            textBox_ratio.Text = ratio.ToString();
+        }
+
+        private void textBox_nbrLoss_TextChanged(object sender, EventArgs e)
+        {
+            ratio = winTotal / lossTotal;
+            textBox_ratio.Text = ratio.ToString();
         }
     }
 }
